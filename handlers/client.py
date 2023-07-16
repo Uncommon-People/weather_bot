@@ -1,4 +1,5 @@
 from aiogram import types, Dispatcher
+from weather_API import weather
 from create_bot import bot
 
 
@@ -8,9 +9,9 @@ async def start(message: types.Message):
 
 async def get_weather(message: types.Message):
     if message.text == 'Weather':
-        await message.answer('Ok')
+        await message.answer(f'Temp: {weather.get_temp()}')
     else:
-        await message.answer('Print "Weather", what know info of temperature')
+        await message.answer('Write "Weather", what know info of temperature')
 
 
 def register_handlers_client(dp: Dispatcher):
